@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Customer</title>
+    <link href="../css/customer.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="menu-logo">
+            </div>
+
+            <div class="menu-content">
+                <div class="menu-item">
+                    <div class="menu-item-logo" id="board"></div>
+                    <div class="menu-item-text">Tổng quan</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-logo" id="report"></div>
+                    <div class="menu-item-text">Báo cáo</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-logo" id="order"></div>
+                    <div class="menu-item-text">Đơn hàng</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-logo" id="buy"></div>
+                    <div class="menu-item-text">Mua hàng</div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="content">
+            <div class="content-header">
+                <div class="header-title">Khách hàng</div>
+                <div class="header-right">
+                    <div class="header-btn" id="btn-help" title="Trợ giúp"></div>
+                    <div class="header-btn" id="btn-notice" title="Thông báo"></div>
+                    <div class="header-btn" id="btn-support" title="Tổng đài hỗ trợ"></div>
+                    <div class="header-user">
+                        <div class="user-avatar"></div>
+                        <div class="user-name">Phạm Danh Chiến</div>
+                    </div>
+                    <select class="select-store" name="store" id="store">
+                        <option value="">Hà Nội</option>
+                        <option value="">Đà Nẵng</option>
+                        <option value="">Hải Phòng</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="content-center">
+                <div class="tool-bar">
+                    <div class="tool-bar-item" id="btn-add">
+                        <div class="tool-bar-icon" id="btn-add-icon"></div>
+                        <div class="tool-bar-text">Thêm mới</div>
+                    </div>
+                    <div class="tool-bar-item" id="btn-copy">
+                        <div class="tool-bar-icon" id="btn-copy-icon"></div>
+                        <div class="tool-bar-text">Nhân bản</div>
+                    </div>
+                    <div class="tool-bar-item" id="btn-edit">
+                        <div class="tool-bar-icon" id="btn-edit-icon"></div>
+                        <div class="tool-bar-text">Sửa</div>
+                    </div>
+                    <div class="tool-bar-item" id="btn-del">
+                        <div class="tool-bar-icon" id="btn-del-icon"></div>
+                        <div class="tool-bar-text">Xóa</div>
+                    </div>
+                    <div class="tool-bar-item" id="btn-include">
+                        <div class="tool-bar-icon" id="btn-include-icon"></div>
+                        <div class="tool-bar-text">Nạp</div>
+                    </div>
+                    <div class="tool-bar-item" id="btn-import">
+                        <div class="tool-bar-icon" id="btn-import-icon"></div>
+                        <div class="tool-bar-text">Nhập khẩu</div>
+                    </div>
+                    <div class="tool-bar-item" id="btn-export">
+                        <div class="tool-bar-icon" id="btn-export-icon"></div>
+                        <div class="tool-bar-text">Xuất khẩu</div>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table id="table" border="1">
+                        <thead>
+                            <tr>
+                                <th>Mã khách hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Điện thoại</th>
+                                <th>Ngày sinh</th>
+                                <th>Nhóm khách hàng</th>
+                                <th>Ghi chú</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>KH001</td>
+                                <td>Nguyễn Hoàng Long</td>
+                                <td>032963652</td>
+                                <td>25/10/1999</td>
+                                <td></td>
+                                <td></td>
+                                <td>Đang theo dõi</td>
+                            </tr>
+                            <tr>
+                                <td>KH002</td>
+                                <td>Trần Thị Thu Hương</td>
+                                <td>01653218</td>
+                                <td>03/05/1996</td>
+                                <td></td>
+                                <td></td>
+                                <td>Đang theo dõi</td>
+                            </tr>
+                            <tr>
+                                <td>KH003</td>
+                                <td>Nguyễn Văn Hùng</td>
+                                <td>0315698745</td>
+                                <td>12/02/1997</td>
+                                <td></td>
+                                <td></td>
+                                <td>Đang theo dõi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="footer">
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dialog modal-->
+    <div class="modal" id="modal"></div>
+    <div class="dialog-customer" id="dialog-customer">
+        <!-- Dialog top -->
+        <div class="dialog-top">
+            <div class="dialog-top-title">Thêm mới khách hàng</div>
+            <div class="dialog-top-btn" id="btn-dialog-close"></div>
+        </div>
+
+        <!-- Dialog content -->
+        <div class="dialog-content">
+            <!-- Thông tin cơ bản -->
+            <div class="dialog-content-name">THÔNG TIN CƠ BẢN</div>
+
+            <div class="dialog-row">
+                <div class="flex flex1">
+                    <label for="customer-id">Mã khách hàng <span class="red">*</span></label>
+                    <input type="text" id="customer-id" class="flex1" />
+                </div>
+                <div class="flex flex1">
+                    <label for="customer-name">Tên khách hàng <span class="red">*</span></label>
+                    <input type="text" id="customer-name" class="flex1" />
+                </div>
+            </div>
+
+            <div class="dialog-row">
+                <div class="flex flex1">
+                    <label for="customer-group">Nhóm khách hàng</label>
+                    <input type="text" id="customer-group" class="flex1" placeholder="Nhập để tìm kiếm" />
+                </div>
+                <div class="flex flex1">
+                    <label for="customer-phone">Điện thoại <span class="red">*</span></label>
+                    <input type="tel" id="customer-phone" class="flex1" />
+                </div>
+            </div>
+
+            <!-- Địa chỉ -->
+            <div class="dialog-row">
+                <label for="">Địa chỉ</label>
+                <!-- <div class="flex flex1"> -->
+                    <input type="text" class="flex1" placeholder="Tỉnh/Thành phố" />
+                    <input type="text" class="flex1" placeholder="Quận/Huyện" />
+                    <input type="text" class="flex1" placeholder="Phường/Xã" />
+                <!-- </div> -->
+            </div>
+            <div class="flex">
+                <label for=""></label>
+                <input type="text" class="flex1" placeholder="Số nhà, đường phố">
+            </div>
+
+            <div class="dialog-row">
+                <div class="flex flex1">
+                    <label for="customer-email">Email</label>
+                    <input type="text" id="customer-email" class="flex1"/>
+                </div>
+                <div class="flex flex1">
+                    <label for="customer-birth">Ngày sinh</label>
+                    <input type="text" id="customer-birth" class="flex1" placeholder="DD / MM / YYYY" />
+                </div>
+            </div>
+
+            <div class="dialog-row">
+                <div class="flex flex1">
+                    <label for="employee">Nhân viên phụ trách</label>
+                    <select name="employee" id="employee" class="flex1">
+                        <option value=""></option>
+                        <option value="">Phạm Danh Chiến</option>
+                        <option value="">Nguyễn Quốc Vượng</option>
+                    </select>
+                </div>
+                <div class="flex flex1"></div>
+            </div>
+            
+            <div class="dialog-row">
+                <label for="note">Ghi chú</label>
+                <textarea name="" id="customer-note" cols="30" rows="10"></textarea>
+            </div>
+
+            <!-- Thẻ thành viên -->
+            <div class="dialog-content-name"><p>THẺ THÀNH VIÊN</p></div>
+
+            <div class="dialog-row">
+                <div class="flex flex1">
+                    <label for="card-code">Mã thẻ thành viên</label>
+                    <input type="text" id="card-code" class="flex1"/>
+                </div>
+                <div class="flex flex1">
+                    <label for="card-level">Hạng thẻ</label>
+                    <input type="text" id="card-level" class="flex1" />
+                </div>
+            </div>
+
+            <div class="dialog-row">
+                <label for="customer-cmnd">Số CMND/Hộ chiếu</label>
+                <input type="text" id="customer-cmnd" class="flex1"/>
+            </div>
+
+            <!-- Thông tin công ty -->
+            <div class="dialog-content-name"><p>THÔNG TIN CÔNG TY</p></div>
+
+            <div class="dialog-row">
+                <div class="flex flex1">
+                    <label for="company-name">Tên công ty</label>
+                    <input type="text" id="company-name" class="flex1"/>
+                </div>
+                <div class="flex flex1">
+                    <label for="company-code">Mã số thuế</label>
+                    <input type="text" id="company-code" class="flex1" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Dialog bottom -->
+        <div class="dialog-bottom">
+            <!-- Dialog bottom left -->
+            <div class="flex">
+                <div class="dialog-btn" id="btn-dialog-help-">
+                    <div class="dialog-btn-icon" id="icon-dialog-help"></div>
+                    <div class="dialog-btn-text">Trợ giúp</div>
+                </div>
+            </div>
+
+            <!-- Dialog bottom right -->
+            <div class="flex">
+                <div class="dialog-btn border-blue" id="btn-dialog-save">
+                    <div class="dialog-btn-icon" id="icon-dialog-save"></div>
+                    <div class="dialog-btn-text">Lưu</div>
+                </div>
+                <div class="dialog-btn border-blue" id="btn-dialog-saveadd">
+                    <div class="dialog-btn-icon" id="icon-dialog-saveadd"></div>
+                    <div class="dialog-btn-text">Lưu và thêm mới</div>
+                </div>
+                <div class="dialog-btn" id="btn-dialog-cancel">
+                    <div class="dialog-btn-icon" id="icon-dialog-cancel"></div>
+                    <div class="dialog-btn-text">Hủy bỏ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/lib/jquery-3.5.1.min.js"></script>
+    <script src="../scripts/customer.js"></script>
+</body>
+</html>
